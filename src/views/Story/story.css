@@ -1,0 +1,87 @@
+/* Story-only styles: scroll snap, headline shimmer, small decorative helpers. */
+
+/* Five snap sections (proximity, so the page never traps the scroll). */
+html.story-snap-root {
+  scroll-snap-type: y proximity;
+}
+.story-snap {
+  scroll-snap-align: start;
+}
+
+/* Slow sand-gold shimmer sweeping across the whole headline. */
+@keyframes story-shimmer-kf {
+  from {
+    background-position: 200% 50%;
+  }
+  to {
+    background-position: -200% 50%;
+  }
+}
+.story-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    rgb(var(--text)) 32%,
+    rgb(var(--gold)) 45%,
+    #fff1cc 50%,
+    rgb(var(--gold)) 55%,
+    rgb(var(--text)) 68%
+  );
+  background-size: 260% 100%;
+  background-position: 200% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: story-shimmer-kf 10s linear infinite;
+}
+:root[data-theme='light'] .story-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    rgb(var(--text)) 32%,
+    rgb(var(--gold)) 46%,
+    #7a560f 50%,
+    rgb(var(--gold)) 54%,
+    rgb(var(--text)) 68%
+  );
+}
+
+/* Soft halo behind the particle monogram. */
+.story-halo {
+  background: radial-gradient(closest-side, rgb(var(--brand) / 0.22), rgb(var(--brand-deep) / 0.12) 45%, transparent 72%);
+}
+:root[data-theme='light'] .story-halo {
+  background: radial-gradient(closest-side, rgb(var(--brand) / 0.1), transparent 70%);
+}
+
+/* Giant chapter numeral outline. */
+.story-numeral {
+  -webkit-text-stroke: 1px rgb(var(--line) / 0.07);
+  color: transparent;
+}
+
+@keyframes story-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+.story-bob {
+  animation: story-bob 1.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.story-snap-root {
+    scroll-snap-type: none;
+  }
+  .story-shimmer {
+    animation: none;
+    background: none;
+    color: rgb(var(--text));
+  }
+  .story-bob,
+  .story-root .animate-pulseRing {
+    animation: none;
+  }
+}

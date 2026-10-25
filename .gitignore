@@ -1,0 +1,13 @@
+# Dependencies and build output
+node_modules
+dist
+
+# Local tooling
+.vercel
+.claude
+.DS_Store
+*.log
+
+# Environment (for example an optional VITE_ASK_WAFRA_ENDPOINT)
+.env
+.env.*
