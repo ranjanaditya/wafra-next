@@ -2,6 +2,8 @@
 
 A stage-gated digital youth bank inside Wafra, built for a 90-second live demo and the Q&A that follows. All personas, employers and transactions are synthetic. A "Prototype · synthetic data" badge appears on every view.
 
+**Live:** https://wafra-next.vercel.app. Every push to `main` redeploys it through Vercel's Git integration.
+
 ## Run it
 
 ```bash
